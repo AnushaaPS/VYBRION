@@ -134,75 +134,100 @@ mainNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
 populateSelect();
 renderCourses();
 
-async function sendEnquiry(event) {
+const enquiryForm = document.getElementById("enquiryForm");
 
-    // STOP normal browser submission
-    event.preventDefault();
-    event.stopPropagation();
+if (enquiryForm) {
 
-    const form = document.getElementById("enquiryForm");
-    const button = document.getElementById("sendBtn");
-    const status = document.getElementById("formStatus");
+    enquiryForm.addEventListener("submit", async function (event) {
 
-    button.disabled = true;
-    button.textContent = "Sending...";
+        event.preventDefault();
 
-    status.style.display = "none";
-    status.textContent = "";
+        const sendBtn = document.getElementById("sendBtn");
+        const formStatus = document.getElementById("formStatus");
 
-    try {
+        sendBtn.disabled = true;
+        sendBtn.textContent = "Sending...";
 
-        const formData = new FormData(form);
+        formStatus.style.display = "none";
+        formStatus.textContent = "";
 
-        const response = await fetch(
-            "https://formsubmit.co/ajax/info.vctacademy@gmail.com",
-            {
-                method: "POST",
-                body: formData,
-                headers: {
-                    "Accept": "application/json"
+        try {
+
+            // Collect form data
+            const formData = new FormData(enquiryForm);
+
+            const data = Object.fromEntries(formData.entries());
+
+            console.log("Sending enquiry:", data);
+
+            // Send to FormSubmit
+            const response = await fetch(
+                "https://formsubmit.co/ajax/info.vctacademy@gmail.com",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+
+                    body: JSON.stringify(data)
                 }
+            );
+
+            console.log("Response status:", response.status);
+
+            const result = await response.json();
+
+            console.log("FormSubmit response:", result);
+
+            if (response.ok && result.success) {
+
+                // SUCCESS
+                formStatus.textContent =
+                    "Enquiry sent successfully. We'll connect you soon.";
+
+                formStatus.className =
+                    "form-status success";
+
+                formStatus.style.display = "block";
+
+                // Clear form
+                enquiryForm.reset();
+
+                // Button
+                sendBtn.textContent = "Sent ✓";
+
+                setTimeout(function () {
+
+                    sendBtn.textContent = "Send Enquiry";
+                    sendBtn.disabled = false;
+
+                }, 3000);
+
+            } else {
+
+                throw new Error(
+                    result.message || "Form submission failed"
+                );
             }
-        );
 
-        const result = await response.json();
+        } catch (error) {
 
-        console.log("FormSubmit response:", result);
+            console.error("FORM ERROR:", error);
 
-        if (result.success === "true" || result.success === true) {
+            formStatus.textContent =
+                "Unable to send your enquiry. Please try again.";
 
-            status.textContent =
-                "Enquiry sent successfully. We'll connect you soon.";
+            formStatus.className =
+                "form-status error";
 
-            status.className = "form-status success";
-            status.style.display = "block";
+            formStatus.style.display = "block";
 
-            form.reset();
-
-            button.textContent = "Sent ✓";
-
-            setTimeout(() => {
-                button.textContent = "Send Enquiry";
-                button.disabled = false;
-            }, 3000);
-
-        } else {
-
-            throw new Error("FormSubmit failed");
-
+            sendBtn.textContent = "Send Enquiry";
+            sendBtn.disabled = false;
         }
 
-    } catch (error) {
+    });
 
-        console.error("Error:", error);
-
-        status.textContent =
-            "Unable to send your enquiry. Please try again.";
-
-        status.className = "form-status error";
-        status.style.display = "block";
-
-        button.textContent = "Send Enquiry";
-        button.disabled = false;
-    }
 }
