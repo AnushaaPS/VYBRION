@@ -254,12 +254,7 @@
             </div>
         </div>
 
-<form class="contact-form" id="enquiryForm"
-    id="enquiryForm"
-    action="https://formsubmit.co/ajax/info.vctacademy@gmail.com"
-    method="POST"
-    onsubmit="sendEnquiry(event)"
->
+<form class="contact-form" id="enquiryForm">
 
     <input
         type="hidden"
@@ -269,8 +264,8 @@
 
     <input
         type="hidden"
-        name="_captcha"
-        value="false"
+        name="_url"
+        value="https://anushaaps.github.io/VYBRION/"
     >
 
     <div class="form-row">
@@ -280,7 +275,7 @@
             <input
                 type="text"
                 id="name"
-                name="Name"
+                name="name"
                 required
             >
         </div>
@@ -290,7 +285,7 @@
             <input
                 type="tel"
                 id="phone"
-                name="Phone"
+                name="phone"
                 required
             >
         </div>
@@ -302,7 +297,7 @@
         <input
             type="email"
             id="email"
-            name="Email"
+            name="email"
             required
         >
     </div>
@@ -312,7 +307,7 @@
 
         <select
             id="course"
-            name="Interested Course"
+            name="course"
             required
         >
             <option value="">Select a course</option>
@@ -333,7 +328,7 @@
 
         <textarea
             id="message"
-            name="Message"
+            name="message"
             rows="5"
             required
         ></textarea>
