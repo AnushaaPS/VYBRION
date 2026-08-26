@@ -33,7 +33,7 @@ const courses = [
 const grid = document.getElementById("courseGrid");
 const search = document.getElementById("courseSearch");
 const filters = document.querySelectorAll(".filter");
-const courseSelect = document.getElementById("courseSelect");
+const courseSelect = document.getElementById("course");
 
 let currentFilter = "all";
 
@@ -75,11 +75,15 @@ function renderCourses(){
 function populateSelect(){
     courses.forEach(c => {
         const option = document.createElement("option");
+
         option.value = c.name;
-        option.textContent = `${c.name} — ${c.duration} — ${c.fee}`;
+        option.textContent =
+            `${c.name} — ${c.duration} — ${c.fee}`;
+
         courseSelect.appendChild(option);
     });
 }
+
 
 const modal = document.getElementById("courseModal");
 const modalTitle = document.getElementById("modalTitle");
@@ -153,14 +157,14 @@ if (enquiryForm) {
 
         try {
 
-            // Collect form data
             const formData = new FormData(enquiryForm);
 
-            const data = Object.fromEntries(formData.entries());
+            const data = Object.fromEntries(
+                formData.entries()
+            );
 
             console.log("Sending enquiry:", data);
 
-            // Send to FormSubmit
             const response = await fetch(
                 "https://formsubmit.co/ajax/info.vctacademy@gmail.com",
                 {
@@ -175,46 +179,64 @@ if (enquiryForm) {
                 }
             );
 
-            console.log("Response status:", response.status);
+            console.log(
+                "Response status:",
+                response.status
+            );
 
             const result = await response.json();
 
-            console.log("FormSubmit response:", result);
+            console.log(
+                "FormSubmit response:",
+                result
+            );
 
-            if (response.ok && result.success) {
+            if (
+                response.ok &&
+                (
+                    result.success === true ||
+                    result.success === "true"
+                )
+            ) {
 
-                // SUCCESS
                 formStatus.textContent =
                     "Enquiry sent successfully. We'll connect you soon.";
 
                 formStatus.className =
                     "form-status success";
 
-                formStatus.style.display = "block";
+                formStatus.style.display =
+                    "block";
 
-                // Clear form
                 enquiryForm.reset();
 
-                // Button
-                sendBtn.textContent = "Sent ✓";
+                sendBtn.textContent =
+                    "Sent ✓";
 
                 setTimeout(function () {
 
-                    sendBtn.textContent = "Send Enquiry";
-                    sendBtn.disabled = false;
+                    sendBtn.textContent =
+                        "Send Enquiry";
+
+                    sendBtn.disabled =
+                        false;
 
                 }, 3000);
 
             } else {
 
                 throw new Error(
-                    result.message || "Form submission failed"
+                    result.message ||
+                    "Form submission failed"
                 );
             }
 
         } catch (error) {
 
-            console.error("FORM ERROR:", error);
+            console.error(
+                "FORM ERROR:",
+                error
+            );
 
             formStatus.textContent =
                 "Unable to send your enquiry. Please try again.";
@@ -222,12 +244,15 @@ if (enquiryForm) {
             formStatus.className =
                 "form-status error";
 
-            formStatus.style.display = "block";
+            formStatus.style.display =
+                "block";
 
-            sendBtn.textContent = "Send Enquiry";
-            sendBtn.disabled = false;
+            sendBtn.textContent =
+                "Send Enquiry";
+
+            sendBtn.disabled =
+                false;
         }
 
     });
-
 }
