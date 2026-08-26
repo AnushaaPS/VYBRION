@@ -166,7 +166,7 @@ if (enquiryForm) {
             console.log("Sending enquiry:", data);
 
             const response = await fetch(
-                "https://formsubmit.co/ajax/info.vctacademy@gmail.com",
+                "https://formsubmit.co/ajax/jeyal2007@gmail.com",
                 {
                     method: "POST",
 
