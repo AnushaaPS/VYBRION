@@ -580,7 +580,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 .stage-card {
     position: relative;
 
-    min-height: 300px;
+    min-height: 150px;
 
     margin-top: 18px;
 
@@ -2010,4 +2010,107 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 
 .details-btn {
     display: none !important;
+}
+
+@media (max-width: 700px) {
+
+    .learning-model {
+        padding: 55px 15px 50px;
+    }
+
+    .learning-heading {
+        margin-bottom: 45px;
+    }
+
+    .learning-kicker {
+        font-size: 10px;
+        gap: 8px;
+    }
+
+    .learning-kicker span {
+        width: 25px;
+    }
+
+    .learning-heading h2 {
+        font-size: 28px;
+    }
+
+    .learning-heading p {
+        font-size: 13px;
+    }
+
+
+    /* =========================
+       MOBILE LEARNING CARDS
+    ========================= */
+
+    .learning-process {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .stage-card {
+        min-height: 220px;
+        margin-top: 18px;
+        padding: 58px 20px 35px;
+    }
+
+    .stage-card h3 {
+        font-size: 27px;
+    }
+
+    .stage-card h4 {
+        font-size: 16px;
+    }
+
+    .stage-icon {
+        width: 62px;
+        height: 62px;
+        bottom: -30px;
+        font-size: 25px;
+    }
+
+
+    /* Hide arrows on mobile */
+    .process-arrow {
+        display: none;
+    }
+
+
+    /* Keep the progression section responsive */
+    .progression-title {
+        font-size: 11px;
+    }
+
+    .progression-title span {
+        width: 15%;
+    }
+
+    .progression-bar {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .progress-item {
+        width: 100%;
+    }
+
+    .progress-arrow {
+        display: none;
+    }
+
+    .learning-features {
+        grid-template-columns: 1fr;
+    }
+
+    .learning-feature {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+
+    .learning-feature:last-child {
+        border-bottom: none;
+    }
 }
