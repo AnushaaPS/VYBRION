@@ -29,11 +29,11 @@ button,input,select,textarea{font:inherit}
 .container{width:min(1180px,92%);margin:auto}
 .section{padding:105px 0}
 h1,h2,h3{font-family:"Playfair Display",serif;line-height:1.12}
-h2{font-size:clamp(38px,4.6vw,62px);letter-spacing:-1.5px}
+h2{font-size:clamp(18px,3.6vw,48px);letter-spacing:-1.2px}
 h2 em,h1 em{font-style:normal;color:var(--gold)}
 .section-kicker,.eyebrow{
     color:var(--gold);
-    font-size:11px;
+    font-size:8px;
     font-weight:800;
     letter-spacing:2.3px;
 }
@@ -84,14 +84,14 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 }
 .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:65px;position:relative;z-index:2}
 .hero-copy{padding-bottom:20px}
-.hero h1{font-size:clamp(55px,6.5vw,88px);margin:22px 0;letter-spacing:-3px}
+.hero h1{font-size:clamp(40px,5vw,64px);margin:22px 0;letter-spacing:-2px}
 .hero h1 strong{color:#fff;font-weight:800}
-.hero-lead{max-width:600px;color:rgba(255,255,255,.72);font-size:17px;margin-bottom:34px}
+.hero-lead{max-width:600px;color:rgba(255,255,255,.72);font-size:15px;margin-bottom:34px}
 .hero-actions{display:flex;gap:13px;flex-wrap:wrap}
 .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:12px;
     border:0;border-radius:9px;padding:14px 22px;
-    font-size:13px;font-weight:800;cursor:pointer;transition:.25s;
+    font-size:10px;font-weight:800;cursor:pointer;transition:.25s;
 }
 .btn-gold{background:var(--gold);color:#fff}
 .btn-gold:hover{background:var(--gold-2);transform:translateY(-3px);box-shadow:0 15px 35px rgba(201,152,47,.25)}
@@ -175,7 +175,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 .learning-card{padding:30px 25px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.035);transition:.25s}
 .learning-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);border-color:rgba(201,152,47,.45)}
 .step{color:var(--gold-2);font-weight:900;font-size:11px;letter-spacing:1px}
-.learning-card h3{font-size:28px;margin:18px 0 10px}
+.learning-card h3{font-size:25px;margin:18px 0 10px}
 .learning-card p{font-size:12px;color:rgba(255,255,255,.57)}
 .session-note{margin-top:35px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.1);border-radius:14px;overflow:hidden}
 .session-note div{padding:18px 20px;border-right:1px solid rgba(255,255,255,.1)}
@@ -200,7 +200,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 .course-top{display:flex;justify-content:space-between;gap:10px;align-items:center}
 .course-type{font-size:8px;letter-spacing:1.3px;font-weight:900;color:var(--gold)}
 .course-duration{font-size:9px;background:var(--cream);padding:5px 8px;border-radius:20px;color:var(--navy);font-weight:800}
-.course-card h3{font-size:23px;margin:14px 0 8px;color:var(--navy)}
+.course-card h3{font-size:20px;margin:14px 0 8px;color:var(--navy)}
 .course-card p{font-size:11px;color:var(--muted);min-height:52px}
 .course-bottom{display:flex;justify-content:space-between;align-items:end;margin-top:18px;padding-top:15px;border-top:1px solid var(--line)}
 .course-price strong{display:block;font-size:18px;color:var(--navy)}
@@ -228,7 +228,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 /* CTA */
 .cta-section{background:linear-gradient(110deg,var(--navy),#0c3764);color:#fff;padding:70px 0}
 .cta-inner{display:flex;justify-content:space-between;align-items:center;gap:40px}
-.cta-inner h2{max-width:730px;font-size:clamp(35px,4vw,55px);margin-top:15px}
+.cta-inner h2{max-width:730px;font-size:clamp(28px,3.6vw,48px);margin-top:15px}
 
 /* Contact */
 .contact{background:var(--cream)}
@@ -265,7 +265,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 .modal-panel{position:relative;z-index:2;width:min(620px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;padding:35px;box-shadow:0 40px 100px rgba(0,0,0,.35)}
 .modal-close{position:absolute;right:16px;top:12px;border:0;background:none;font-size:28px;color:#74808c;cursor:pointer}
 .modal-category{font-size:9px;letter-spacing:1.5px;font-weight:900;color:var(--gold)}
-.modal-panel h2{font-size:40px;color:var(--navy);margin:10px 0}
+.modal-panel h2{font-size:30px;color:var(--navy);margin:10px 0}
 .modal-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .modal-meta span{background:var(--cream);padding:7px 10px;border-radius:20px;font-size:10px;font-weight:800}
 .modal-panel>p{font-size:13px;color:var(--muted);line-height:1.8}
@@ -316,7 +316,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 }
 @media(max-width:560px){
     .section{padding:78px 0}
-    .hero h1{font-size:48px}
+    .hero h1{font-size:40px}
     .hero-lead{font-size:14px}
     .hero-stats{gap:10px}.hero-stats div{padding-right:10px}
     .hero-stats b{font-size:21px}.hero-stats span{font-size:7px}
@@ -496,7 +496,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
     margin: 15px 0 8px;
 
     font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(42px, 5vw, 68px);
+    font-size: clamp(28px, 4vw, 52px);
     line-height: 1.05;
     color: #fff;
 }
@@ -982,7 +982,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
     }
 
     .learning-heading h2 {
-        font-size: 39px;
+        font-size: 28px;
     }
 
     .learning-heading p {
@@ -1133,7 +1133,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 
 .class-timings {
     position: relative;
-    padding: 90px 0;
+    padding: 70px 0;
     background:
         linear-gradient(
             135deg,
@@ -1195,7 +1195,7 @@ h2 em,h1 em{font-style:normal;color:var(--gold)}
 .timing-header h2 {
     margin: 0 0 15px;
     color: #0b2545;
-    font-size: clamp(38px, 5vw, 58px);
+    font-size: clamp(30px, 4vw, 48px);
     line-height: 1.05;
 }
 
