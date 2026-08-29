@@ -245,7 +245,11 @@ const courseSelect = document.getElementById("course");
 let currentFilter = "all";
 
 function renderCourses(){
-    const query = (search.value || "").trim().toLowerCase();
+    if (!grid) return;
+
+    const query = search
+        ? (search.value || "").trim().toLowerCase()
+        : "";
 
     const filtered = courses.filter(c => {
         const categoryOk =
@@ -393,22 +397,75 @@ filters.forEach(btn => {
     });
 });
 
-search.addEventListener("input", renderCourses);
 
-// Mobile navigation
+/* =====================================================
+   COURSE SEARCH
+===================================================== */
+
+if (search) {
+    search.addEventListener("input", renderCourses);
+}
+
+
+/* =====================================================
+   MOBILE HAMBURGER MENU
+===================================================== */
+
 const menuToggle = document.getElementById("menuToggle");
 const mainNav = document.getElementById("mainNav");
-menuToggle.addEventListener("click", () => {
-    const open = mainNav.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", open);
-});
-mainNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-    mainNav.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded","false");
-}));
 
-populateSelect();
-renderCourses();
+if (menuToggle && mainNav) {
+
+    menuToggle.addEventListener("click", function () {
+
+        const isOpen = mainNav.classList.toggle("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation" : "Open navigation"
+        );
+
+    });
+
+    mainNav.querySelectorAll("a").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            mainNav.classList.remove("open");
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation"
+            );
+
+        });
+
+    });
+
+}
+
+
+/* =====================================================
+   COURSE PAGE ONLY
+===================================================== */
+
+if (courseSelect) {
+    populateSelect();
+}
+
+if (grid) {
+    renderCourses();
+}
 
 const enquiryForm = document.getElementById("enquiryForm");
 
