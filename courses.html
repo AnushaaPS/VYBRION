@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VYBRION Civil Tech Academy — Learn Beyond. Industry-aligned civil engineering software and technical courses with practical projects, portfolios and certification.">
+    <title>VYBRION | Civil Tech Academy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section class="section courses-section" id="courses">
+    <div class="container">
+        <div class="section-heading">
+            <div class="section-kicker">COURSE CATALOGUE</div>
+            <h2>Choose your <em>engineering path.</em></h2>
+            <p>26 industry-aligned courses: 12 software courses and 14 technical courses.</p>
+        </div>
+
+        <div class="course-controls">
+            <div class="filter-group" role="tablist" aria-label="Course category">
+                <button class="filter active" data-filter="all">All Courses</button>
+                <button class="filter" data-filter="software">Software</button>
+                <button class="filter" data-filter="technical">Technical</button>
+            </div>
+            <label class="search-box">
+                <span>⌕</span>
+                <input id="courseSearch" type="search" placeholder="Search courses...">
+            </label>
+        </div>
+
+        <div class="course-grid" id="courseGrid"></div>
+    </div>
+</section>
+<script src="courses.js"></script>
+
+</body>
